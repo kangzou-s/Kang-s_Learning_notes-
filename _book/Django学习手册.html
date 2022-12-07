@@ -1,0 +1,314 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Django · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    abbb
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="Django学习手册.html">
+            
+                <a href="Django学习手册.html">
+            
+                    
+                    Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Django</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="django-&#x5B66;&#x4E60;&#x624B;&#x518C;">Django &#x5B66;&#x4E60;&#x624B;&#x518C;</h2>
+<h2 id="&#x6700;&#x5916;&#x5C42;&#x7ED3;&#x6784;">&#x6700;&#x5916;&#x5C42;&#x7ED3;&#x6784;</h2>
+<pre><code class="lang-python">mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+</code></pre>
+<h2 id="path-&#x7684;&#x56DB;&#x4E2A;&#x53C2;&#x6570;">path &#x7684;&#x56DB;&#x4E2A;&#x53C2;&#x6570;</h2>
+<ul>
+<li>route:  Django starts at the first pattern in <code>urlpatterns</code> and makes its way down the list, comparing the requested URL against each pattern until it finds one that matches.</li>
+<li>view: When Django finds a matching pattern, it calls the specified view function with an <a href="https://docs.djangoproject.com/en/3.2/ref/request-response/#django.http.HttpRequest" target="_blank"><code>HttpRequest</code></a> object as the first argument and any &#x201C;captured&#x201D; values from the route as keyword arguments.</li>
+<li>kwargs: Arbitrary keyword arguments can be passed in a dictionary to the target view.</li>
+<li>name: Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates. This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.</li>
+</ul>
+<h2 id="url">url</h2>
+<h2 id="view">view</h2>
+<h2 id="models">models</h2>
+<p>Now we&#x2019;ll define your models &#x2013; essentially, your database layout, with additional metadata.</p>
+<p><code>python manage.py makemigrations pols</code> </p>
+<p>By running <code>makemigrations</code>, you&#x2019;re telling Django that you&#x2019;ve made some changes to your models (in this case, you&#x2019;ve made new ones) and that you&#x2019;d like the changes to be stored as a <em>migration</em>.</p>
+<p><code>python manage.py sqlmigrate polls 0001</code></p>
+<p>The <a href="https://docs.djangoproject.com/en/3.2/ref/django-admin/#django-admin-sqlmigrate" target="_blank"><code>sqlmigrate</code></a> command takes migration names and returns their SQL</p>
+<p>The <a href="https://docs.djangoproject.com/en/3.2/ref/django-admin/#django-admin-sqlmigrate" target="_blank"><code>sqlmigrate</code></a> command doesn&#x2019;t actually run the migration on your database - instead, it prints it to the screen so that you can see what SQL Django thinks is required. It&#x2019;s useful for checking what Django is going to do or if you have database administrators who require SQL scripts for changes.</p>
+<p><code>python manage.py migrate</code></p>
+<p>The <a href="https://docs.djangoproject.com/en/3.2/ref/django-admin/#django-admin-migrate" target="_blank"><code>migrate</code></a> command takes all the migrations that haven&#x2019;t been applied (Django tracks which ones are applied using a special table in your database called <code>django_migrations</code>) and runs them against your database - essentially, synchronizing the changes you made to your models with the schema in the database.</p>
+<p><code>python manage.py shell</code></p>
+<p>&#x4EA4;&#x4E92;&#x5F0F;&#x65B9;&#x5F0F;&#x6267;&#x884C;python</p>
+<p><code>Model.__str__()</code></p>
+<p>The <code>__str__()</code> method is called whenever you call <code>str()</code> on an object. Django uses <code>str(obj)</code> in a number of places. Most notably, to display an object in the Django admin site and as the value inserted into a template when it displays an object. Thus, you should always return a nice, human-readable representation of the model from the <code>__str__()</code> method.</p>
+<p><code>Choice.objects.filter(question__pub_date__year=current_year)</code></p>
+<p>&#x6CE8;&#x610F;&#x5355;&#x4E0B;&#x5212;&#x7EBF;&#x548C;&#x53CC;&#x4E0B;&#x5212;&#x7EBF;&#x7684;&#x533A;&#x522B;</p>
+<p>&#x53CC;&#x4E0B;&#x5212;&#x7EBF;&#x8868;&#x793A;&#x5C5E;&#x6027;&#xFF0C;&#x65B9;&#x6CD5;&#x7B49;</p>
+<p>use double underscores to perform field lookups</p>
+<h2 id="view">View</h2>
+<p>A view is a &#x201C;type&#x201D; of Web page in your Django application that generally serves a specific function and has a specific template. </p>
+<p>In Django, web pages and other content are delivered by views.</p>
+<p>To get from a URL to a view, Django uses what are known as &#x2018;URLconfs&#x2019;. A URLconf maps URL patterns to views.</p>
+<p><a href="https://docs.djangoproject.com/en/3.2/topics/http/urls/" target="_blank">URL dispatcher</a></p>
+<p>There&#x2019;s a problem here, though: the page&#x2019;s design is hard-coded in the view. If you want to change the way the page looks, you&#x2019;ll have to edit this Python code. So let&#x2019;s use Django&#x2019;s template system to separate the design from Python by creating a template that the view can use.</p>
+<p>The context is a dictionary mapping template variable names to Python objects.</p>
+<p> <a href="https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/#module-django.shortcuts" target="_blank">Shortcut:</a></p>
+<p><code>render</code></p>
+<p><code>get_object_or_404</code></p>
+<p>The template system uses dot-lookup syntax to access variable attributes. In the example of <code>{{ question.question_text }}</code>, first Django does a dictionary lookup on the object <code>question</code>. Failing that, it tries an attribute lookup &#x2013; which works, in this case. If attribute lookup had failed, it would&#x2019;ve tried a list-index lookup.</p>
+<p><a href="https://docs.djangoproject.com/en/3.2/topics/templates/" target="_blank">Templates guide</a></p>
+<p>templates &#x4E2D;&#x4F7F;&#x7528; url &#x53BB;&#x89E3;&#x8026;&#x5408;</p>
+<p>Add namespaces to your URLconf to specify the views used:</p>
+<p><code>&lt;li&gt;&lt;a href=&quot;{% url &apos;polls:detail&apos; question.id %}&quot;&gt;{{ question.question_text }}&lt;/a&gt;&lt;/li&gt;</code></p>
+<p><code>reverse</code>.   &#x65B9;&#x4FBF;&#x8C03;&#x7528;&#x67D0;&#x4E2A;view</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> reverse
+
+<span class="hljs-keyword">return</span> HttpResponseRedirect(reverse(<span class="hljs-string">&apos;polls:results&apos;</span>, args=(question.id,)))
+</code></pre>
+<p><code>generic views system</code></p>
+<p>Generic views abstract common patterns to the point where you don&#x2019;t even need to write Python code to write an app.</p>
+<p><code>ListView</code>:  display a list of objects</p>
+<p><code>DetailView</code>:  display a detail page for a particular type of object</p>
+<p><code>context_object_name</code>:  However, for ListView, the automatically generated context variable is <code>question_list</code>. To override this we provide the <code>context_object_name</code> attribute, specifying that we want to use <code>latest_question_list</code> instead.</p>
+<p><a href="https://docs.djangoproject.com/en/3.2/topics/class-based-views/" target="_blank">generic views documentation</a></p>
+<h2 id="test">Test</h2>
+<p><code>python manage.py test polls</code></p>
+<h2 id="stylesheet-and-image">stylesheet and image</h2>
+<p>css &#x8981;&#x653E;&#x5728;polls/static/polls &#x4E0B; &#x662F;&#x56E0;&#x4E3A;namespace&#x7684;&#x95EE;&#x9898;&#x3002;&#x4E0D;&#x662F;&#x5F88;&#x7406;&#x89E3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QuestionAdmin</span><span class="hljs-params">(admin.ModelAdmin)</span>:</span>
+    fieldsets = [
+        (<span class="hljs-keyword">None</span>,               {<span class="hljs-string">&apos;fields&apos;</span>: [<span class="hljs-string">&apos;question_text&apos;</span>]}),
+        (<span class="hljs-string">&apos;Date information&apos;</span>, {<span class="hljs-string">&apos;fields&apos;</span>: [<span class="hljs-string">&apos;pub_date&apos;</span>]}),
+    ]
+</code></pre>
+<p>The first element of each tuple in <a href="https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.fieldsets" target="_blank"><code>fieldsets</code></a> is the title of the fieldset.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: abbb">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Django","level":"1.2","depth":1,"previous":{"title":"abbb","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Django学习手册.md","mtime":"2022-12-07T12:43:01.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-07T15:03:22.315Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
